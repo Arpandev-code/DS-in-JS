@@ -11,12 +11,12 @@ class Stack{
     //pop the top most 
     pop()
     {
-        this.stack.pop()
+       this.isEmpty? this.stack.pop(): console.log("Stack is empty");
     }
     //check the top most element of a stack
     peek()
     {
-        return this.stack[this.stack.length-1]
+        return this.isEmpty? this.stack[this.stack.length-1] :"Stack is empty"
     }
     //check the stack is empty or not
     isEmpty()
@@ -31,19 +31,24 @@ class Stack{
     //check if the given value contains in a stack or not
     contains(data)
     {
-        return this.stack.includes(data)
+        return this.isEmpty?this.stack.includes(data):"Stack is empty"
     }
     //reverse the stack
     reverse()
     {
-        return this.stack.reverse()
+        return this.isEmpty?this.stack.reverse():"Stack is empty"
     }
     //print the stack
     printStack()
     {
+
         let str='';
+        if(this.isEmpty)
+        {
+            return "Stack is empty"
+        }
         for (let i = 0; i < this.stack.length; i++) {
-            str += this.stack[i]
+            str += this.stack[i] + "\n"
         }
         return str
     }
