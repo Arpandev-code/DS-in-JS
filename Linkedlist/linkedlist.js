@@ -71,3 +71,26 @@ LinkedList.prototype.deleteLastItem=function()
     }
     slast.next=null
 }
+//Delete a node with a given key(#leetcode)
+LinkedList.prototype.deleteWithKey=function(key)
+{
+    if(!this.head)
+    {
+        return;
+    }
+    //data found at head
+    if(this.head.data===key)
+    {
+        this.head=this.head.next
+    }
+    current=this.head
+    while(current.next!==null)
+    {
+        if(current.next.data===key)//if current.next node's data is equal to the given key so unlink the node that's it
+        {
+            current.next=current.next.next
+            return
+        }
+        current=current.next // if not then update the current node 
+    }
+}
