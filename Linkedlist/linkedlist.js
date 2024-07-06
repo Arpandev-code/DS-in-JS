@@ -44,3 +44,30 @@ LinkedList.prototype.insertAfter=function(prevNode,data)
     const newNode= new Node(data,prevNode.next)
     prevNode.next=newNode
 }
+//Delete the fisrt node
+LinkedList.prototype.deleteFirstItem=function()
+{
+    if(!this.head)
+    {
+        return //Head pointing to null then there is nothing to delete
+    }
+    this.head=this.head.next //shift the head to the next node then the link will be break from first node cuz linkedlist Starts with head
+}
+//Delete the last node
+LinkedList.prototype.deleteLastItem=function()
+{
+    if(!this.head)
+    {
+        return;// if the list is empty then nothing to do 
+    }
+    if(!this.head.next)
+    {
+        this.head=null // if there is one node in the list so delete that only
+    }
+    slast =this.head;//if there is multiple node assume head is the second last node
+    while(slast.next.next)// then check if slast.next.next gives any value or null, if its null then do slast.next=null
+    {
+        slast=slast.next// if it gives value then head isn't a slast node then shift to next node to check again
+    }
+    slast.next=null
+}
