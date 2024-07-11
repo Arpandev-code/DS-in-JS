@@ -121,3 +121,22 @@ LinkedList.prototype.traversal=function()
     }
     return listValue.join(" -> ")
 }
+
+//Reverse a LinkedList
+//Explantion in readme file
+LinkedList.prototype.reverseList=function()
+{
+    //To revesre a linkedList we need to track record of prev & next node to avoid unnessery link break in LinkedList
+    let current=this.head;
+    let prev =null;
+    let next=null;
+    while(current)
+    {
+        next=current.next; //storing the current.next value for later use
+        current.next=prev;//First we have to point the current.next to the prev
+        prev=current;//now prev pointer need to shift to the new node for next itrration
+        current=next;//to shift the current poiner to the next(have to use stored next value Lineno-135)
+    }
+    this.head=prev;// when current doesn't have any data(i.c. pointing to null), have to store left prev value to the head
+
+}
