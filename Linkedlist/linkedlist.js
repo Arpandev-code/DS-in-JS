@@ -139,4 +139,4 @@ LinkedList.prototype.reverseList=function()
     }
     this.head=prev;// when current doesn't have any data(i.c. pointing to null), have to store left prev value to the head
 
-}
+} 
