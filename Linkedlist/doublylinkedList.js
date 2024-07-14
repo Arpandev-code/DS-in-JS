@@ -42,3 +42,46 @@ DoublyLinkedList.prototype.insertAtEnd=function(data)
         this.head=newNode
     }
 }
+DoublyLinkedList.prototype.insertAtGiven=function(data,prevNode)
+{
+    if(prevNode===null)
+    {
+        console.log("Invalid prevNode");
+    }
+    const newNode= new Node(data,prevNode,prevNode.next)
+    if(prevNode.next!== null)
+    {
+        prevNode.next.prev=newNode
+    }
+    prevNode.next=newNode
+    //tail
+    if(newNode.next===null)
+    {
+        this.tail=newNode;
+    }
+}
+DoublyLinkedList.prototype.deleteFirstNode=function()
+{
+    if(!this.head){
+        return
+    }
+    if(this.head==this.tail)
+    {
+        this.head=null;
+        this.tail=null;
+    }else{
+        this.head=this.head.next;
+        this.head.prev=null;
+    }
+}
+DoublyLinkedList.prototype.deleteLastNode=function()
+{
+    if(this.head==this.tail)
+        {
+            this.head=null;
+            this.tail=null;
+        }else{
+            this.tail= this.tail.prev;
+            this.tail.next=null
+        }
+}
